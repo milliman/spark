@@ -128,7 +128,7 @@ private[spark] class PythonWorkerFactory(pythonExec: String, envVars: Map[String
       out.flush()
 
       // Wait for it to connect to our socket
-      serverSocket.setSoTimeout(10000)
+      serverSocket.setSoTimeout(42000)
       try {
         val socket = serverSocket.accept()
         simpleWorkers.put(socket, worker)
