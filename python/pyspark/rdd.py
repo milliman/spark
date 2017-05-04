@@ -1355,6 +1355,8 @@ class RDD(object):
                     except StopIteration:
                         return
                     taken += 1
+                for _ in iterator:
+                    pass
 
             p = range(partsScanned, min(partsScanned + numPartsToTry, totalParts))
             res = self.context.runJob(self, takeUpToNumLeft, p)
